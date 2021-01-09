@@ -1,84 +1,97 @@
 <%- include("../partials/header") %>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-            
-        <!-- Alert message -->    
-            <% if(error && error.length>0){ %>
-                <div class= "alert alert-info" role='alert'>
-                    <%= error %>
-                    </div>
-            <% } %>
-            <% if(success && success.length>0) { %>
-        <div class= "alert alert-info" role='alert'>
-            <%= success %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
             </div>
-            <% } %>
-            
-            <div class="thumbnail showcard">
-                
-                <div class="caption">                                
-                    <h1 class="formtitle"><%= exhibit.name %></h1>
-                    <p>
-                        <em>Submitted by <%= exhibit.author.username %></em>
-                    </p>                    
-                    <p><%= exhibit.description %></p>
-                    <!-- Buttons -->
-                    <!-- first currentUser checks if there is a logged in user, and then it checks exhibit's owhnership  -->
-                    <% if(currentUser && exhibit.author.id.equals(currentUser._id)) { %>
-                    <div>
-                        <!-- Edit -->
-                    <a class="btn btn-xs btn-default" href="/exhibits/<%= exhibit._id %>/edit">Edit</a>
-                    <!-- Delete -->
-                    <form class="delete-form" method="POST" action="/exhibits/<%= exhibit._id%>?_method=DELETE">
-                        <button class="btn btn-default btn-xs">Delete</button>
-                    </form>
+            <div class="col-md-8">
+
+                <!-- Alert message -->
+                <% if(error && error.length>0){ %>
+                    <div class="alert alert-info" role='alert'>
+                        <%= error %>
                     </div>
-                <% } %>
-                </div>
-                <img id="showimg" src ="<%= exhibit.image %>">
-            </div>         
+                    <% } %>
+                        <% if(success && success.length>0) { %>
+                            <div class="alert alert-info" role='alert'>
+                                <%= success %>
+                            </div>
+                            <% } %>
 
-            <!-- Comments -->
-            
-                <div class="text-left commentbtn">
-                    <a class="btn btn-primary btn-more" href="/exhibits/<%= exhibit._id %>/comments/new">Add comment</a>
-                </div>
-                            
-                <% exhibit.comments.reverse().forEach(function(comment){ %>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="well">
-                       <strong><%= comment.author.username %></strong>                       
-                        <span><%= comment.date.toLocaleDateString() %></span>
-                        <p>
-                            <%= comment.text %>
-                         </p>
-                         <!-- Edit Comment Button -->
-                         <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
-                         <a class="btn btn-default btn-xs" 
-                         href="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>/edit">Edit</a>
-                          <!-- Delete Comment Button -->
-                          <form class="delete-form" method="POST"
-                          action="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>?_method=DELETE">
-                          <input type="submit" class="btn btn-default btn-xs" value="Delete"></form>
-                          <% } %>                         
-                    </div>                                    
-                </div>
-                </div>
-                <% }) %>
+                                <div class="thumbnail showcard">
+
+                                    <div class="caption">
+                                        <h1 class="formtitle">
+                                            <%= exhibit.name %>
+                                        </h1>
+                                        <p>
+                                            <em>Submitted by <%= exhibit.author.username %></em>
+                                        </p>
+                                        <p>
+                                            <%= exhibit.description %>
+                                        </p>
+                                        <!-- Buttons -->
+                                        <!-- first currentUser checks if there is a logged in user, and then it checks exhibit's owhnership  -->
+                                        <% if(currentUser && exhibit.author.id.equals(currentUser._id)) { %>
+                                            <div>
+                                                <!-- Edit -->
+                                                <a class="btn btn-xs btn-default"
+                                                    href="/exhibits/<%= exhibit._id %>/edit">Edit</a>
+                                                <!-- Delete -->
+                                                <form class="delete-form" method="POST"
+                                                    action="/exhibits/<%= exhibit._id%>?_method=DELETE">
+                                                    <button class="btn btn-default btn-xs">Delete</button>
+                                                </form>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <img id="showimg" src="<%= exhibit.image %>">
+                                </div>
+
+                                <!-- Comments -->
+
+                                <div class="text-left commentbtn">
+                                    <a class="btn btn-primary btn-more"
+                                        href="/exhibits/<%= exhibit._id %>/comments/new">Add Comment</a>
+                                </div>
+
+                                <% exhibit.comments.reverse().forEach(function(comment){ %>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="well">
+                                                <strong>
+                                                    <%= comment.author.username %>
+                                                </strong>
+                                                <span>
+                                                    <%= comment.date.toLocaleDateString() %>
+                                                </span>
+                                                <p>
+                                                    <%= comment.text %>
+                                                </p>
+                                                <!-- Edit Comment Button -->
+                                                <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
+                                                    <a class="btn btn-default btn-xs"
+                                                        href="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                                                    <!-- Delete Comment Button -->
+                                                    <form class="delete-form" method="POST"
+                                                        action="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>?_method=DELETE">
+                                                        <input type="submit" class="btn btn-default btn-xs"
+                                                            value="Delete">
+                                                    </form>
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }) %>
 
 
-        
-        </div>
 
-        <div class="col-md-2">
             </div>
 
+            <div class="col-md-2">
+            </div>
+
+        </div>
     </div>
-</div>
 
-<%- include("../partials/footer") %>    
+    <%- include("../partials/footer") %>

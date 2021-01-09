@@ -1,50 +1,55 @@
 <%- include("../partials/header") %>
 
-<div class="container">
-    
- <!-- Alert message -->
-    <% if(error && error.length>0){ %>
-    <div class= "alert alert-info" role='alert'>
-    <%= error %>
-    </div>
-    <% } %>
-    <% if(success && success.length>0) { %>
-    <div class= "alert alert-info" role='alert'>
-    <%= success %>
-    </div>
-    <% } %>
-    
-<header class="jumbotron">
     <div class="container">
-    <h1>Welcome to WeSeeArt!</h1>
-    <p>View our gallery of street art in Boulder Area, Colorado.</br>
-    Would you like to share your finding?</p>
-    <p>
-    <a class="btn btn-primary btn-more" href="/exhibits/new">Add exhibit</a>
-    </p>
-    </div>
-</header>
 
-<!-- Creating a grid of exhibits -->
-<div class="row text-center grid">
-
-<% exhibits.forEach(function(exhib){ %>
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-        <div class="thumbnail listofthumbnails"> 
-            <a href ="/exhibits/<%= exhib._id %>">
-                <img class="img-rounded" src="<%= exhib.image %>">
-                </a>
-            <div class="caption">
-            <a href ="/exhibits/<%= exhib._id %>"><h4><%= exhib.name %></h4></a>
+        <!-- Alert message -->
+        <% if(error && error.length>0){ %>
+            <div class="alert alert-info" role='alert'>
+                <%= error %>
             </div>
-            <p>
-            <a href ="/exhibits/<%= exhib._id %>" class="btn btn-primary btn-more">Visit</a>
-            </p>
-            </div>        
-        </div>
-<% }) %>
-</div>
+            <% } %>
+                <% if(success && success.length>0) { %>
+                    <div class="alert alert-info" role='alert'>
+                        <%= success %>
+                    </div>
+                    <% } %>
 
-</div>
+                        <header class="jumbotron">
+                            <div class="container">
+                                <h1>Welcome to WeSeeArt!</h1>
+                                <p>View our gallery of street art in Boulder Area, Colorado.</br>
+                                    Would you like to share your finding?</p>
+                                <p>
+                                    <a class="btn btn-primary btn-lg btn-more" href="/exhibits/new">Add Exhibit</a>
+                                </p>
+                            </div>
+                        </header>
 
-<%- include("../partials/footer") %>
+                        <!-- Creating a grid of exhibits -->
+                        <div class="row text-center grid">
+
+                            <% exhibits.forEach(function(exhib){ %>
+                                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                                    <div class="thumbnail listofthumbnails">
+                                        <a href="/exhibits/<%= exhib._id %>">
+                                            <img class="img-rounded" src="<%= exhib.image %>">
+                                        </a>
+                                        <div class="caption">
+                                            <a href="/exhibits/<%= exhib._id %>">
+                                                <h4>
+                                                    <%= exhib.name %>
+                                                </h4>
+                                            </a>
+                                        </div>
+                                        <p>
+                                            <a href="/exhibits/<%= exhib._id %>"
+                                                class="btn btn-primary btn-lg btn-more">Visit</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+
+    </div>
+
+    <%- include("../partials/footer") %>

@@ -20,7 +20,6 @@ body {
     border-radius: 0%;
     padding-top: 3em;
     padding-bottom: 3em;
-    letter-spacing: 1px;
 }
 
 .navcolor {
@@ -29,7 +28,7 @@ body {
 
 .navbar-header a {
     color: rgb(232, 224, 235) !important;
-    font-size: 2.2em;
+    font-size: 2.4em;
 }
 
 .navbar-header a:hover {
@@ -106,7 +105,6 @@ h1 {
     background-color: rgb(116, 63, 116);
     border: none;
     padding: 0.5em 1em;
-    font-size: 1.2em;
     letter-spacing: 1px;
 }
 
