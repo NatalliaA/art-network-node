@@ -1,0 +1,170 @@
+body {
+    background: rgba(116, 63, 116, 0.5);
+    padding-bottom: 4em;
+}
+
+.navbar-toggle {
+    background-color: rgb(232, 224, 235) !important;
+}
+
+.navbar-toggle:focus {
+    background-color: rgb(232, 224, 235) !important;
+}
+
+.navbar-toggle:hover {
+    background-color: rgb(116, 63, 116) !important;
+}
+
+.navbar-default {
+    border: none !important;
+    border-radius: 0%;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    letter-spacing: 1px;
+}
+
+.navcolor {
+    background: linear-gradient(to right, rgb(116, 63, 116) 45%, #337ab7 100%);
+}
+
+.navbar-header a {
+    color: rgb(232, 224, 235) !important;
+    font-size: 2.2em;
+}
+
+.navbar-header a:hover {
+    color: rgb(116, 63, 116)!important;
+    background: rgb(232, 224, 235) !important;
+    border-radius: 5%;
+}
+
+nav .navbar-nav li a {
+    color: rgb(232, 224, 235) !important;
+    font-size: 1.6em;
+}
+
+nav .navbar-nav li a:hover {
+    color: rgb(116, 63, 116)!important;
+    background: rgb(232, 224, 235) !important;
+    border-radius: 5%;
+}
+
+nav .navbar-nav li a.loggeduser {
+    color: rgb(232, 224, 235) !important;
+}
+
+nav .navbar-nav li a.loggeduser:hover {
+    color: rgb(116, 63, 116)!important;
+    background: rgb(232, 224, 235) !important;
+    border-radius: 5%;
+}
+
+.alert-info {
+    margin-top: 3em;
+}
+
+.jumbotron {
+    background: rgb(247, 245, 248);
+    color: rgba(0, 0, 0, 0.7);
+    padding: 2em;
+    margin-top: 3em;
+}
+
+.jumbotron h1 {
+    margin: 0.3em 0;
+    color: rgb(51, 122, 183);
+}
+
+.jumbotron a {
+    margin-top: 0.5em;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+}
+
+.listofthumbnails a img {
+    min-height: 14em;
+    height: 14em;
+    width: auto !important;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 1em;
+    background: rgb(247, 245, 248);
+}
+
+.formtitle {
+    color: #337ab7;
+}
+
+.btn-more {
+    background-color: rgb(116, 63, 116);
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+/* style for fitting img with diff size */
+
+.grid {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.well {
+    background: rgb(232, 224, 235);
+}
+
+.caption h4 {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.caption>a {
+    text-decoration: none;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.forgotlink {
+    margin-top: 1em;
+}
+
+#imgedit {
+    display: block;
+    margin-bottom: 1em;
+    height: 13em;
+    width: auto;
+}
+
+.commentbtn {
+    margin-bottom: 1.5em;
+}
+
+.showcard {
+    padding: 0 1.5em 2em 1.5em;
+    margin-top: 3em;
+}
+
+#showimg {
+    max-height: 35em;
+    width: auto;
+    margin-top: 1em;
+}
+
+.thumbnailform {
+    padding: 0 2em 1em 2em;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 4em;
+}
+
+.well {
+    padding-bottom: 0.5em;
+}

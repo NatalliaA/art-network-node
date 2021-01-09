@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">        
+            <div class="col-md-3">
+            </div>
+    
+            <div class="col-md-6">
+                
+        <!-- Alert message -->       
+            <% if(error && error.length>0){ %>
+                <div class= "alert alert-info" role='alert'>
+                    <%= error %>
+                    </div>
+            <% } %>
+            <% if(success && success.length>0) { %>
+        <div class= "alert alert-info" role='alert'>
+            <%= success %>
+            </div>
+            <% } %>
+           
+
+                <div class="thumbnail thumbnailform">
+        <h1 class="text-center formtitle">Add a new exhibit</h1>
+                   
+        <form action="/exhibits" method="POST" enctype="multipart/form-data">
+                              
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" class="form-control" type="text" name="exhibit[name]"
+                 placeholder="e.g. Painted Wall, Moose, Reading Boy" value="<%=name%>" 
+                autofocus required>
+            </div>            
+         
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input id="description" class="form-control" type="text" name="exhibit[description]" 
+                placeholder="e.g. city location, material, features" value="<%=desciption%>"  required>
+            </div> 
+
+             <div class="form-group">
+                <label for="image">Image (only .png/.jpg/.jpeg)</label>
+                <input type="file" id="image" name="image"
+                accept="image/*" required>
+            </div>
+                 
+            <div class="form-group text-center">           
+            <button class="btn btn-primary">Submit</button> 
+            <a class="btn btn-default"  href="/exhibits">Cancel</a>                   
+            </div>
+        </form>
+        </div>  
+        </div>
+        <div class="col-md-3">
+        </div>
+            
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

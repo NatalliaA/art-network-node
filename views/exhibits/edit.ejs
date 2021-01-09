@@ -1,0 +1,63 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            
+        <!-- Alert message -->
+       
+            <% if(error && error.length>0){ %>
+                <div class= "alert alert-info" role='alert'>
+                    <%= error %>
+                    </div>
+            <% } %>
+            <% if(success && success.length>0) { %>
+        <div class= "alert alert-info" role='alert'>
+            <%= success %>
+            </div>
+            <% } %>           
+
+            <div class="thumbnail thumbnailform">
+        <h1 class="text-center formtitle">Edit <%= exhibit.name %></h1>
+
+        <form action="/exhibits/<%= exhibit._id %>?_method=PUT" method="POST" 
+            enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input id="name" class="form-control" type="text" name="exhibit[name]" 
+                value="<%= exhibit.name %>" required>
+            </div> 
+            
+            <div class="form-group">
+                <label for="description" class="control-label">Description</label>
+                <input id="description" class="form-control" type="text" name="exhibit[description]" 
+                value="<%= exhibit.description %>" required>
+            </div>
+         
+            <div class="form-group">
+                <label for="imgedit" class="control-label">Change Image</label> 
+                <img id="imgedit" class="img-thumbnail" src="<%=exhibit.image%>"> 
+                <label for="image" class="control-label">Only .png/.jpg/.jpeg</label>  
+                <input type="file" id="image" name="image" accept="image/*"  
+                value="<%= exhibit.image %>">             
+            </div>           
+
+            <div class="form-group text-center">           
+            <button class="btn btn-primary">Submit</button>
+            <a class="btn btn-default" href="/exhibits/<%= exhibit._id %>">Cancel</a>
+            </div>
+
+        </form>
+        </div>
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
