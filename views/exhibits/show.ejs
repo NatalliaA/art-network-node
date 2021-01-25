@@ -50,42 +50,79 @@
 
                                 <!-- Comments -->
 
-                                <div class="text-left commentbtn">
-                                    <a class="btn btn-primary btn-more"
-                                        href="/exhibits/<%= exhibit._id %>/comments/new">Add Comment</a>
-                                </div>
-
-                                <% exhibit.comments.reverse().forEach(function(comment){ %>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="well">
-                                                <strong>
-                                                    <%= comment.author.username %>
-                                                </strong>
-                                                <span>
-                                                    <%= comment.date.toLocaleDateString() %>
-                                                </span>
-                                                <p>
-                                                    <%= comment.text %>
-                                                </p>
-                                                <!-- Edit Comment Button -->
-                                                <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
-                                                    <a class="btn btn-default btn-xs"
-                                                        href="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>/edit">Edit</a>
-                                                    <!-- Delete Comment Button -->
-                                                    <form class="delete-form" method="POST"
-                                                        action="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>?_method=DELETE">
-                                                        <input type="submit" class="btn btn-default btn-xs"
-                                                            value="Delete">
-                                                    </form>
-                                                    <% } %>
-                                            </div>
+                                <% if(currentUser) { %>
+                                    <form action="/exhibits/<%= exhibit._id %>/comments" method="POST">
+                                        <div class="form-group">
+                                            <textarea class='form-control' name="comment[text]" rows="5"
+                                                required></textarea>
                                         </div>
-                                    </div>
-                                    <% }) %>
 
+                                        <div class="text-left commentbtn">
+                                            <button class="btn btn-primary btn-more">Add Comment</button>
+                                        </div>
+                                    </form>
 
+                                    <% } %>
 
+                                        <% if(!currentUser) { %>
+                                            <div class="text-left commentbtn">
+                                                <a class="btn btn-primary btn-more"
+                                                    href="/exhibits/<%= exhibit._id %>/comments/new">Add Comment</a>
+                                            </div>
+                                            <% } %>
+
+                                                <% exhibit.comments.reverse().forEach(function(comment){ %>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="well">
+                                                                <strong>
+                                                                    <%= comment.author.username %>
+                                                                </strong>
+                                                                <span>
+                                                                    <%= comment.date.toLocaleDateString() %>
+                                                                </span>
+                                                                <p>
+                                                                    <%= comment.text %>
+                                                                </p>
+                                                                <!-- Edit Comment Button -->
+
+                                                                <% if(currentUser &&
+                                                                    comment.author.id.equals(currentUser._id)) {%>
+
+                                                                    <!-- Delete Comment Button -->
+                                                                    <form id="deleteCommentBtn" class="delete-form"
+                                                                        method="POST"
+                                                                        action="/exhibits/<%=exhibit._id%>/comments/<%=comment._id%>?_method=DELETE">
+                                                                        <div class="form-group">
+                                                                            <input type="submit"
+                                                                                class="btn btn-default btn-xs"
+                                                                                value="Delete">
+                                                                        </div>
+                                                                    </form>
+
+                                                                    <!-- Edit Comment -->
+
+                                                                    <form id="editForm" method="POST"
+                                                                        action="/exhibits/<%= exhibit._id %>/comments/<%=comment._id%>?_method=PUT">
+                                                                        <div class="form-group">
+                                                                            <textarea class='form-control'
+                                                                                name="comment[text]" rows="2"
+                                                                                required><%=comment.text%></textarea>
+                                                                            <!-- <input class="form-control" type="text" value="<%=comment.text%>" name="comment[text]"
+                                                            required> -->
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input type="submit"
+                                                                                class="btn btn-primary btn-xs"
+                                                                                value="Edit">
+                                                                        </div>
+                                                                    </form>
+                                                                    <% } %>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <% }) %>
             </div>
 
             <div class="col-md-2">
