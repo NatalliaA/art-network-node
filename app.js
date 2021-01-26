@@ -20,9 +20,13 @@ var exhibitsRoutes = require('./routes/exhibits'),
     indexRoutes       = require('./routes/index'); 
     
 //connect to db
-mongoose.connect("mongodb://localhost/artdb", {
+//production: create and connect to DB hosted on MongoDB Atlas
+var dbUrl = process.env.DB_URL || "mongodb://localhost/artdb";
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
-    useUnifiedTopology : true
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 .then(()=> console.log ("Connect to DB!"))
 .catch(error => console.log (error.message));
