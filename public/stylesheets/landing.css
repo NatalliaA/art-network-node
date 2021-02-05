@@ -45,7 +45,8 @@ body {
 
 @media only screen and (max-width: 767px) {
     .btn-more {
-    font-size: 48px;
+    font-size: 54px;
+    padding: 5px;
   }
 }
 

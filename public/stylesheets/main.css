@@ -181,6 +181,7 @@ h1 {
 
     .jumbotron p{
         font-size: 20px;
+        font-weight: bolder;
     }
    
     .listofthumbnails a img {
