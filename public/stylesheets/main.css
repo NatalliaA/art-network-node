@@ -82,14 +82,10 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-.listofthumbnails a img {
-    min-height: 14em;
-    height: 14em;
-    width: auto !important;
-}
+
 
 .thumbnail img {
-    width: 100%;
+    width: 100%;   
 }
 
 .thumbnail {
@@ -156,6 +152,7 @@ h1 {
     width: auto;
     margin-top: 1em;
 }
+
 .thumbnailform {
     padding: 0 2em 1em 2em;
     color: rgba(0, 0, 0, 0.7);
@@ -164,4 +161,31 @@ h1 {
 
 .well {
     padding-bottom: 0.5em;
+}
+
+/* for md and larger screens */
+@media only screen and (min-width: 768px){
+    .listofthumbnails a img {
+        min-height: 14em;
+        height: 14em;
+        width: auto !important;
+    }
+}
+
+/* for xs and s screens */
+@media only screen and (max-width: 767px) {
+   
+    .listofthumbnails a img {
+        width: 90%;  
+    }
+
+    .thumbnail {
+        padding: 1em;
+        margin: 1em 5em;        
+    }
+
+    .showcard {
+        padding: 0 1.5em 2em 1.5em;
+        margin: 3em 0 1em 0;
+    }   
 }
