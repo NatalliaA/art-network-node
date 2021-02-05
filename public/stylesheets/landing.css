@@ -6,13 +6,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 35vh;
-}
-
-#landing-header h1 {
-  color: white;
-  font-size: 5em;
-  margin-bottom: 50px;
+  padding-top: 40vh;
 }
 
 .slideshow {
@@ -30,7 +24,7 @@ body {
 .btn-more {
   background-color: rgb(116, 63, 116);
   border: none;
-  font-size: 3em;
+  font-size: 4em;
 }
 
 .slideshow li {
@@ -50,11 +44,8 @@ body {
 /* for xs and s screens */
 
 @media only screen and (max-width: 767px) {
-  #landing-header h1 {
-    font-size: 46px;
-  }
-  .btn-more {
-    font-size: 32px;
+    .btn-more {
+    font-size: 48px;
   }
 }
 
